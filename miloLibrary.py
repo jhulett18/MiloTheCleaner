@@ -9,22 +9,29 @@ def findBooks():
 	for file in list:
 
 		# Variables
-		dest = "C:\\Users\\JT\\Downloads\\Books"
+		dest = "C:\\Users\\JT\\Downloads\\Milo_Books"
 		source = "C:\\Users\\JT\\Downloads\\" + file  
 		 
 
-		# Create New Folder
+		# Create New Folder if it does not exist
 		if not os.path.exists(dest):
 			os.makedirs(dest)
 
 
-		# Move file from source to new dest 
-		if file.endswith(".epub"): 
-			shutil.copy(source, dest)
+		# Move epub 
+		if file.endswith(".epub"):
+			print("EPUB: " + file + " has been moved successfully!") 
+			shutil.move(source, dest)
 
-			# del original file
-			os.remove(source)
-			print("Moved file: " + file + " BOOK to " + dest + " -- ALL DUPLICATES DELETED \n")
+		# Move pdf 
+		if file.endswith(".pdf"):
+			print("PDF: " + file + " has been moved successfully!") 
+			shutil.move(source, dest)
+
+		if file.endswith(".txt"):
+			print("PDF: " + file + " has been moved successfully!") 
+			shutil.move(source, dest)
+
 			
 def findAudio():
 
@@ -34,7 +41,7 @@ def findAudio():
 
 		# Variables
 		
-		dest = "C:\\Users\\JT\\Downloads\\Audio"
+		dest = "C:\\Users\\JT\\Downloads\\Milo_Audio"
 		source = "C:\\Users\\JT\\Downloads\\" + file  
 		 
 
@@ -43,22 +50,17 @@ def findAudio():
 			os.makedirs(dest)
 
 
-		# Move file from source to new dest 
 		if file.endswith(".mp3"): 
-			shutil.copy(source, dest)
-		if file.endswith(".mp4"): 
-			shutil.copy(source, dest)
+			print("MP3: " + file + " has been moved successfully!")
+			shutil.move(source, dest)
+		if file.endswith(".mp4"):
+			print("MP4: " + file + " has been moved successfully!") 
+			shutil.move(source, dest)
 		if file.endswith(".wav"): 
-			shutil.copy(source, dest)
+			print("WAV: " + file + " has been moved successfully!")
+			shutil.move(source, dest)
 
-			# del original file
-		os.remove(source)
-		print("Moved file: " + file + " AUDIO to " + dest + " -- ALL DUPLICATES DELETED \n")
-			
 		
-		
-		
-
 
 
 # Next is going to be walking through subdirs and dirs to collect files
