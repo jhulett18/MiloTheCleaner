@@ -1,16 +1,22 @@
 import os, shutil 
 
 
+# Finds current user
+user = os.getlogin()
+
 def findBooks():
 
 	
-	list = os.listdir("C:\\Users\\JT\\Downloads")
+
+
+	list = os.listdir("C:\\Users\\" + user +"\\Downloads")
+	
 
 	for file in list:
 
-		# Variables
-		dest = "C:\\Users\\JT\\Downloads\\Milo_Books"
-		source = "C:\\Users\\JT\\Downloads\\" + file  
+		# Grabbing User's Download dir
+		dest = "C:\\Users\\"+ user +"\\Downloads\\Milo_Books"
+		source = "C:\\Users\\"+ user +"\\Downloads\\" + file  
 		 
 
 		# Create New Folder if it does not exist
@@ -35,14 +41,15 @@ def findBooks():
 			
 def findAudio():
 
-	list = os.listdir("C:\\Users\\JT\\Downloads")
+	# Dynamically grabbing all directories 
+	list = os.listdir("C:\\Users\\"+ user +"\\Downloads")
 
 	for file in list:
 
 		# Variables
 		
-		dest = "C:\\Users\\JT\\Downloads\\Milo_Audio"
-		source = "C:\\Users\\JT\\Downloads\\" + file  
+		dest = "C:\\Users\\"+ user +"\\Downloads\\Milo_Audio"
+		source = "C:\\Users\\"+ user +"\\Downloads\\" + file 
 		 
 
 		# Create New Folder if it does not exist
